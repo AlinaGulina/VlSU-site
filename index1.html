@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Прикладная информатика - ВлГУ | Институт ИТЭ</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  #professions, #admission { position: relative; overflow: hidden; }
+  #professions .section-wrap, #admission .section-wrap { position: relative; z-index: 2; }
+
+  .code-rain {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .code-rain-col {
+    position: absolute;
+    top: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    white-space: pre;
+    color: #6d28d9;
+    opacity: 0.22;
+    animation-name: codeFall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  .code-rain-col:nth-child(odd) { color: #0891b2; }
+  .code-rain-col:nth-child(3n)  { color: #4f46e5; }
+
+  @keyframes codeFall {
+    from { transform: translateY(-10vh); }
+    to   { transform: translateY(100vh); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .code-rain-col { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="stars-canvas"></canvas>
+
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">
+    <div class="cube">  <img src="img/logo.png" alt="Logo"></div>
+    <span data-key="nav_logo_vlsu">ВлГУ</span> <span data-key="nav_logo_ite">ИИТЭ</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#why" data-key="nav_why">О направлении</a></li>
+    <li><a href="#stack" data-key="nav_stack">Технологии</a></li>
+    <li><a href="#curriculum" data-key="nav_curriculum">Обучение</a></li>
+    <li><a href="#professions" data-key="nav_professions">Профессии</a></li>
+    <li><a href="#admission" data-key="nav_admission">Поступление</a></li>
+    <li><a href="#partners" data-key="nav_partners">Партнёры</a></li>
+  </ul>
+  <div style="display:flex; align-items:center;">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn active" data-lang="ru">RU</button>
+
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge reveal"><div class="dot"></div><span data-key="hero_badge">Прикладная информатика в экономике</span></div>
+      <h1 class="hero-title reveal">
+        <span data-key="hero_title1">Стань IT-специалистом</span><br>
+        <span class="line2" data-key="hero_title2">которого ждут</span>
+      </h1>
+      <p class="hero-sub reveal" data-key="hero_sub">
+        Программирование, <strong>искусственный интеллект</strong>, мобильная разработка, аналитика данных — всё это ты освоишь за 4 года в Владимире. И начнёшь работать ещё студентом.
+      </p>
+      <div class="hero-btns reveal">
+        <a href="#cta" class="btn-primary" data-key="hero_btn1">🚀 Хочу учиться здесь</a>
+        <a href="#curriculum" class="btn-ghost" data-key="hero_btn2">📋 Программа</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="hero-stat"><div class="num" data-count="95">0</div><div class="label" data-key="stat1">% трудоустройства</div></div>
+        <div class="hero-stat"><div class="num" data-count="80">0</div><div class="label" data-key="stat2">тыс. ₽ зарплата junior</div></div>
+        <div class="hero-stat"><div class="num" data-count="100">0</div><div class="label" data-key="stat3">+ технологий</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-window">
+        <div class="code-topbar">
+          <div class="dot-r"></div><div class="dot-y"></div><div class="dot-g"></div>
+          <span class="code-filename">future.py</span>
+        </div>
+        <div class="code-body">
+<span class="c-cm"># Твой путь в IT начинается здесь</span><br>
+<br>
+<span class="c-kw">from</span> <span class="c-fn">vlgu</span> <span class="c-kw">import</span> <span class="c-var">знания</span>, <span class="c-var">навыки</span><br>
+<span class="c-kw">from</span> <span class="c-fn">future</span> <span class="c-kw">import</span> <span class="c-var">карьера</span><br>
+<br>
+<span class="c-kw">def</span> <span class="c-fn">стать_специалистом</span>():<br>
+&nbsp;&nbsp;<span class="c-var">технологии</span> = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str">"Python"</span>, <span class="c-str">"Java"</span>, <span class="c-str">"React"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-str">"AI/ML"</span>, <span class="c-str">"Android"</span>, <span class="c-str">"SQL"</span><br>
+&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;<span class="c-var">опыт</span> = <span class="c-fn">практика</span>(<span class="c-str">"с 1 курса"</span>)<br>
+&nbsp;&nbsp;<span class="c-kw">return</span> <span class="c-var">карьера</span>.<span class="c-fn">launch</span>(<span class="c-var">опыт</span>)<br>
+<br>
+<span class="c-cm"># Проходной балл 2025: 169</span><br>
+<span class="c-fn">стать_специалистом</span>()&nbsp;<span class="c-op">✓</span>
+        </div>
+      </div>
+      <div class="tech-chips">
+        <div class="tech-chip"><span class="chip-dot" style="background:#3776ab"></span>Python</div>
+        <div class="tech-chip"><span class="chip-dot" style="background:#f7df1e"></span>JavaScript</div>
+        <div class="tech-chip"><span class="chip-dot" style="background:#3ddc84"></span>Android</div>
+        <div class="tech-chip"><span class="chip-dot" style="background:#a855f7"></span>AI / ML</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- === РОБОТ НА ФОНЕ === -->
+  <div class="robot-container">
+    <div class="robot">
+      <div class="robot-head">
+        <div class="robot-eyes">
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+        </div>
+        <div class="robot-antenna"></div>
+      </div>
+      <div class="robot-body">
+        <div class="robot-chest">
+          <div class="heart"></div>
+        </div>
+        <div class="robot-arms">
+          <div class="arm left">
+            <div class="hand"></div>
+          </div>
+          <div class="arm right">
+            <div class="hand"></div>
+          </div>
+        </div>
+      </div>
+      <div class="robot-legs">
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+      </div>
+    </div>
+  </div>
+  <!-- ========================= -->
+  
+</section>
+
+<section id="why">
+  <div class="section-wrap">
+    <div class="section-label reveal" data-key="why_label">// почему прикладная информатика</div>
+    <h2 class="section-title reveal"><span data-key="why_title_prefix">Почему выбирают</span> <span class="accent" data-key="why_title_accent">нас</span></h2>
+    <p class="section-sub reveal" data-key="why_sub">5 причин, которые убедят тебя - это правильный выбор</p>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-icon"></span>
+        <h3 data-key="why1_title">Искусственный интеллект</h3>
+        <p data-key="why1_desc">Машинное обучение, нейронные сети и анализ данных - уже со второго курса. Ты будешь работать с реальными задачами, а не теоретическими примерами.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon"></span>
+        <h3 data-key="why2_title">Партнёры - ведущие компании</h3>
+        <p data-key="why2_desc">Тесное сотрудничество с IT-компаниями Владимира и области: стажировки, хакатоны, дипломные проекты на реальных задачах бизнеса.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon"></span>
+        <h3 data-key="why3_title">Работаешь уже студентом</h3>
+        <p data-key="why3_desc">Практика с 1 курса, стажировки на 3–4 курсе. Большинство наших студентов находят работу ещё до окончания обучения.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon"></span>
+        <h3 data-key="why4_title">Конкурсы и олимпиады</h3>
+        <p data-key="why4_desc">Участие в олимпиадах, конкурсах разработчиков, хакатонах - это портфолио, опыт и знакомства с работодателями.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon"></span>
+        <h3 data-key="why5_title">Опытная команда</h3>
+        <p data-key="why5_desc">Преподаватели - практикующие специалисты с реальным опытом разработки, аналитики и управления IT-проектами.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon"></span>
+        <h3 data-key="why6_title">Путь в магистратуру</h3>
+        <p data-key="why6_desc">После бакалавриата можно продолжить обучение на магистратуре по прикладной информатике и углубиться в специализацию.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="numbers">
+  <div class="section-wrap">
+    <div class="section-label reveal" data-key="numbers_label">// цифры, которые говорят сами за себя</div>
+    <h2 class="section-title reveal"><span data-key="numbers_title_prefix">Факты о</span> <span class="accent" data-key="numbers_title_accent">профессии</span></h2>
+    <p class="section-sub reveal" data-key="numbers_sub">Рынок IT растёт быстрее любой другой отрасли - и мы готовим к этому рынку</p>
+    <div class="numbers-grid">
+      <div class="num-card reveal">
+        <span class="big">95%</span>
+        <span class="desc" data-key="num1_desc">выпускников трудоустраиваются в первый год</span>
+      </div>
+      <div class="num-card reveal">
+        <span class="big">80k+</span>
+        <span class="desc" data-key="num2_desc">средняя зарплата junior-разработчика в Владимире</span>
+      </div>
+      <div class="num-card reveal">
+        <span class="big">4 года</span>
+        <span class="desc" data-key="num3_desc">и ты востребованный специалист на рынке</span>
+      </div>
+      <div class="num-card reveal">
+        <span class="big">100+</span>
+        <span class="desc" data-key="num4_desc">современных технологий и инструментов в программе</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="section-wrap" style="padding-bottom: 20px;">
+     
+        <div class="section-label reveal" data-key="stack_label">// технологии, которые ты освоишь</div>
+        <h2 class="section-title reveal"><span data-key="stack_title_prefix">Полный</span> <span class="accent" data-key="stack_title_accent">технологический стек</span></h2>
+        <p class="section-sub reveal" data-key="stack_sub">От классического программирования до IoT и инженерии данных</p>
+      </div>
+      <div class="stack-scroll reveal">
+        <div class="stack-track" id="stack-track">
+          <div class="tech-badge"><span class="ti">🐍</span> Python</div>
+          <div class="tech-badge"><span class="ti">☕</span> Java</div>
+          <div class="tech-badge"><span class="ti">#️⃣</span> C#</div>
+          <div class="tech-badge"><span class="ti">🌐</span> JavaScript</div>
+          <div class="tech-badge"><span class="ti">⚛️</span> React</div>
+          <div class="tech-badge"><span class="ti">🐘</span> PHP</div>
+          <div class="tech-badge"><span class="ti">🟢</span> Node.js</div>
+          <div class="tech-badge"><span class="ti">🔴</span> Laravel</div>
+          <div class="tech-badge"><span class="ti">📱</span> Android</div>
+          <div class="tech-badge"><span class="ti">🍎</span> iOS</div>
+          <div class="tech-badge"><span class="ti">🗄️</span> MS SQL Server</div>
+          <div class="tech-badge"><span class="ti">🐘</span> PostgreSQL</div>
+          <div class="tech-badge"><span class="ti">🍃</span> MongoDB</div>
+          <div class="tech-badge"><span class="ti">🐬</span> MySQL</div>
+          <div class="tech-badge"><span class="ti">🐋</span> Docker</div>
+          <div class="tech-badge"><span class="ti">🔧</span> Git</div>
+          <div class="tech-badge"><span class="ti">📊</span> Power BI</div>
+          <div class="tech-badge"><span class="ti">🧪</span> Postman</div>
+          <div class="tech-badge"><span class="ti">🧪</span> Test IT</div>
+          <div class="tech-badge"><span class="ti">1️⃣</span> 1С</div>
+          <div class="tech-badge"><span class="ti">🤖</span> PyTorch</div>
+          <div class="tech-badge"><span class="ti">🐍</span> Python</div>
+          <div class="tech-badge"><span class="ti">☕</span> Java</div>
+          <div class="tech-badge"><span class="ti">#️⃣</span> C#</div>
+          <div class="tech-badge"><span class="ti">🌐</span> JavaScript</div>
+          <div class="tech-badge"><span class="ti">⚛️</span> React</div>
+          <div class="tech-badge"><span class="ti">🐘</span> PHP</div>
+          <div class="tech-badge"><span class="ti">🟢</span> Node.js</div>
+          <div class="tech-badge"><span class="ti">🔴</span> Laravel</div>
+          <div class="tech-badge"><span class="ti">📱</span> Android</div>
+          <div class="tech-badge"><span class="ti">🍎</span> iOS</div>
+          <div class="tech-badge"><span class="ti">🗄️</span> MS SQL Server</div>
+          <div class="tech-badge"><span class="ti">🐘</span> PostgreSQL</div>
+          <div class="tech-badge"><span class="ti">🍃</span> MongoDB</div>
+          <div class="tech-badge"><span class="ti">🐬</span> MySQL</div>
+          <div class="tech-badge"><span class="ti">🐋</span> Docker</div>
+          <div class="tech-badge"><span class="ti">🔧</span> Git</div>
+          <div class="tech-badge"><span class="ti">📊</span> Power BI</div>
+          <div class="tech-badge"><span class="ti">🧪</span> Postman</div>
+          <div class="tech-badge"><span class="ti">🧪</span> Test IT</div>
+          <div class="tech-badge"><span class="ti">1️⃣</span> 1С</div>
+          <div class="tech-badge"><span class="ti">🤖</span> PyTorch</div>
+
+    </div>
+  </div>
+  <div style="height: 60px;"></div>
+</section>
+
+<section id="curriculum">
+<div class="code-rain" aria-hidden="true">
+  <div class="code-rain-col" style="left:6%;  animation-duration:14s; ">def learn():
+    while True:
+        code.write()
+        debug()</div>
+  <div class="code-rain-col" style="left:24%; animation-duration:16s; animation-delay:-2s;">skills = ["C#", "Python", "SQL", 
+"HTML", "CSS", "JS", "React"]</div>
+  <div class="code-rain-col" style="left:42%; animation-duration:12s; animation-delay:-1s;">class Student:
+    def __init__(self):
+        self.skills = ["Backend", "Frontend"]</div>
+  <div class="code-rain-col" style="left:60%; animation-duration:18s; animation-delay:-3s;">db.query("SELECT * 
+FROM projects 
+WHERE year = 2026")</div>
+  <div class="code-rain-col" style="left:77%; animation-duration:13s; animation-delay:-4s;">console.log("Изучаю AI");
+console.log("Разрабатываю IoT");</div>
+  <div class="code-rain-col" style="left:92%; animation-duration:17s; animation-delay:-3s;">while not graduated:
+    study()
+    practice()
+    team_work()</div>
+</div>
+  <div class="section-wrap">
+    <div class="curriculum-header-wrapper">
+      <div class="curriculum-header-text">
+        <div class="section-label reveal" data-key="curriculum_label">// программа обучения</div>
+        <h2 class="section-title reveal">Что ты будешь <span class="accent" data-key="curriculum_title_accent">изучать</span></h2>
+        <p class="section-sub reveal" data-key="curriculum_sub">4 года интенсивного погружения — от основ алгоритмики до промышленной разработки и AI</p>
+      </div>
+      <div class="curriculum-header-image reveal">
+        <img src="img/qr_study.png" alt="Программа обучения" class="curriculum-img">
+      </div>
+    </div>
+    <div class="curriculum-grid">
+      <div class="year-block reveal">
+        <div class="year-header"><span class="year-pill" data-key="year1_pill">Фундамент</span></div>
+        <div class="subject-list">
+          <div class="subject-item"><span class="sicon">⚙️</span> <span data-key="y1s1">Алгоритмизация и программирование (C#, Python)</span></div>
+          <div class="subject-item"><span class="sicon">🗄️</span> <span data-key="y1s2">Базы данных - проектирование и SQL</span></div>
+          <div class="subject-item"><span class="sicon">💻</span> <span data-key="y1s3">Операционные системы и сети</span></div>
+          <div class="subject-item"><span class="sicon">🌐</span> <span data-key="y1s4">Web-разработка: HTML, CSS, JS</span></div>
+        </div>
+      </div>
+      <div class="year-block reveal">
+        <div class="year-header"><span class="year-pill" data-key="year2_pill">Практика</span></div>
+        <div class="subject-list">
+          <div class="subject-item"><span class="sicon">⚛️</span> <span data-key="y2s1">Frontend: React, разработка интерфейсов</span></div>
+          <div class="subject-item"><span class="sicon">🔙</span> <span data-key="y2s2">Backend: PHP/Laravel, Node.js, REST API</span></div>
+          <div class="subject-item"><span class="sicon">🏗️</span> <span data-key="y2s3">Программная инженерия и архитектура</span></div>
+          <div class="subject-item"><span class="sicon">🤝</span> <span data-key="y2s4">Разработка клиент-серверных приложений</span></div>
+        </div>
+      </div>
+      <div class="year-block reveal">
+        <div class="year-header"><span class="year-pill" data-key="year3_pill">Углубление</span></div>
+        <div class="subject-list">
+          <div class="subject-item"><span class="sicon">📱</span> <span data-key="y3s1">Мобильная разработка: Android & iOS</span></div>
+          <div class="subject-item"><span class="sicon">🤖</span> <span data-key="y3s2">Основы и применение искусственного интеллекта</span></div>
+          <div class="subject-item"><span class="sicon">📊</span> <span data-key="y3s3">Программные средства анализа данных</span></div>
+          <div class="subject-item"><span class="sicon">🏛️</span> <span data-key="y3s4">Архитектура и дизайн хранилищ данных</span></div>
+          <div class="subject-item"><span class="sicon">🔗</span> <span data-key="y3s5">Инженерия данных и ETL-процессы</span></div>
+          <div class="subject-item"><span class="sicon">📡</span> <span data-key="y3s6">Интернет вещей (IoT)</span></div>
+        </div>
+      </div>
+      <div class="year-block reveal">
+        <div class="year-header"><span class="year-pill" data-key="year4_pill">Специализация</span></div>
+        <div class="subject-list">
+          <div class="subject-item"><span class="sicon">🏢</span> <span data-key="y4s1">Командное проектирование и разработка</span></div>
+          <div class="subject-item"><span class="sicon">🧪</span> <span data-key="y4s2">Тестирование информационных систем</span></div>
+          <div class="subject-item"><span class="sicon">🔌</span> <span data-key="y4s3">Основы архитектуры и интеграции ИС</span></div>
+          <div class="subject-item"><span class="sicon">🎓</span> <span data-key="y4s4">Дипломный проект и производственная практика</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="bonus" style="background: var(--surface);">
+  <div class="section-wrap" style="text-align: center;">
+    <div class="section-label reveal" style="display: inline-block;">// дополнительные баллы</div>
+    <h2 class="section-title reveal">Как получить <span class="accent">+10 баллов</span> к ЕГЭ</h2>
+    <p class="section-sub reveal" style="margin: 0 auto 40px;">Повысь свои шансы на поступление с индивидуальными достижениями</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto;">
+      <div class="reveal" style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px 20px; transition: transform 0.3s, box-shadow 0.3s;">
+
+        <div style="font-size: 2.5rem; font-weight: 900; color: var(--purple-light);">+5</div>
+        <h3 style="font-size: 1.1rem; margin: 8px 0 4px;">Золотая медаль</h3>
+        <p style="font-size: 0.85rem; color: var(--muted);">Аттестат с отличием</p>
+      </div>
+      
+      <div class="reveal" style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px 20px; transition: transform 0.3s, box-shadow 0.3s;">
+
+        <div style="font-size: 2.5rem; font-weight: 900; color: var(--purple-light);">+4</div>
+        <h3 style="font-size: 1.1rem; margin: 8px 0 4px;">Волонтёрство</h3>
+        <p style="font-size: 0.85rem; color: var(--muted);">Добровольческая деятельность</p>
+      </div>
+      
+      <div class="reveal" style="background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px 20px; transition: transform 0.3s, box-shadow 0.3s;">
+        <div style="font-size: 2.5rem; font-weight: 900; color: var(--purple-light);">+5</div>
+        <h3 style="font-size: 1.1rem; margin: 8px 0 4px;">Знак ГТО</h3>
+        <p style="font-size: 0.85rem; color: var(--muted);">Золотой знак отличия</p>
+      </div>
+    </div>
+    
+    <div class="reveal" style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, rgba(109,40,217,0.08), rgba(8,145,178,0.08)); border-radius: 16px; max-width: 500px; margin-left: auto; margin-right: auto; border: 2px solid var(--purple-light);">
+      <div style="font-size: 0.85rem; color: var(--muted);">Максимальный бонус</div>
+      <div style="font-size: 3rem; font-weight: 900; background: linear-gradient(90deg, var(--purple-light), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">10 баллов</div>
+      <div style="font-size: 0.8rem; color: var(--muted);">из 10 возможных</div>
+    </div>
+  </div>
+</section>
+
+<section id="professions">
+  <div class="code-rain" aria-hidden="true">
+        <div class="code-rain-col" style="left:4%;  animation-duration:14s; ">def hire():
+        skills = ["Python","Java","SQL"]
+        return career.launch()</div>
+        <div class="code-rain-col" style="left:20%; animation-duration:17s; animation-delay:-2s;">SELECT * FROM students
+    WHERE skill = 'IT'
+    ORDER BY future DESC;</div>
+        <div class="code-rain-col" style="left:38%; animation-duration:12s; animation-delay:-6s;">class Specialist:
+        def __init__(self):
+            self.ready = True</div>
+        <div class="code-rain-col" style="left:55%; animation-duration:15s; animation-delay:-9s;">import career
+    from vlgu import skills
+    job = career.find(skills)</div>
+        <div class="code-rain-col" style="left:72%; animation-duration:12s; animation-delay:-5s;">if experience >= 1:
+        salary += bonus
+    print("offer accepted")</div>
+        <div class="code-rain-col" style="left:88%; animation-duration:19s; animation-delay:-4s;">async function getJob() {
+      await study();
+      return offer;
+    }</div>
+      </div>
+
+  <div class="section-wrap">
+    <div class="section-label reveal" data-key="prof_label">// кем ты станешь</div>
+    <h2 class="section-title reveal"><span data-key="prof_title_prefix">Будущая</span> <span class="accent" data-key="prof_title_accent">профессия</span></h2>
+    <p class="section-sub reveal" data-key="prof_sub">8 востребованных направлений, где ждут наших выпускников</p>
+    <div class="prof-grid">
+      <div class="prof-card reveal">
+        <span class="prof-num">01</span>
+        <div><h3 data-key="p1_title">Web-разработчик</h3><p data-key="p1_desc">Frontend / Backend / Fullstack</p></div>
+      </div>
+      <div class="prof-card reveal">
+        <span class="prof-num">02</span>
+        <div><h3 data-key="p2_title">Мобильный разработчик</h3><p data-key="p2_desc">Android & iOS приложения</p></div>
+      </div>
+      <div class="prof-card reveal">
+        <span class="prof-num">03</span>
+        <div><h3 data-key="p3_title">1С-разработчик</h3><p data-key="p3_desc">Корпоративные системы учёта</p></div>
+      </div>
+      <div class="prof-card reveal">
+        <span class="prof-num">04</span>
+        <div><h3 data-key="p4_title">Администратор БД</h3><p data-key="p4_desc">SQL, NoSQL, проектирование хранилищ</p></div>
+      </div>
+      <div class="prof-card reveal">
+        <span class="prof-num">05</span>
+        <div><h3 data-key="p5_title">Тестировщик ПО</h3><p data-key="p5_desc">QA, автоматизация, Postman, Test IT</p></div>
+      </div>
+      <div class="prof-card reveal">
+        <span class="prof-num">06</span>
+        <div><h3 data-key="p6_title">Специалист Data Science</h3><p data-key="p6_desc">Анализ и визуализация данных</p></div>
+      </div>
+      <div class="prof-card reveal">
+        <span class="prof-num">07</span>
+        <div><h3 data-key="p7_title">Специалист по ML</h3><p data-key="p7_desc">Машинное обучение, нейронные сети</p></div>
+      </div>
+      <div class="prof-card reveal">
+        <span class="prof-num">08</span>
+        <div><h3 data-key="p8_title">Системный аналитик</h3><p data-key="p8_desc">Архитектура ИС, интеграции, бизнес-анализ</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="admission">
+  <div class="code-rain" aria-hidden="true">
+    <div class="code-rain-col" style="left:6%;  animation-duration:14s; animation-delay:-3s;">apply(student)
+if score >= 169:
+    status = "enrolled"</div>
+    <div class="code-rain-col" style="left:24%; animation-duration:16s; animation-delay:-5s;">EGE = ["Математика",
+"Русский","Информатика"]</div>
+    <div class="code-rain-col" style="left:42%; animation-duration:12s; animation-delay:-1s;">def admission_2026():
+    return budget_places + paid</div>
+    <div class="code-rain-col" style="left:60%; animation-duration:18s; animation-delay:-8s;">dormitory.available = True
+faculty = "ИИТЭ"
+duration = "4 года"</div>
+    <div class="code-rain-col" style="left:77%; animation-duration:13s; animation-delay:-4s;">print("Подай документы")
+print("Стань частью ВлГУ")</div>
+    <div class="code-rain-col" style="left:92%; animation-duration:17s; animation-delay:-6s;">while not enrolled:
+    submit_documents()</div>
+  </div>
+
+  <div class="section-wrap">
+    <div class="section-label reveal" data-key="admission_label">// как поступить</div>
+    <h2 class="section-title reveal"><span data-key="admission_title_prefix">Поступление</span> <span class="accent" data-key="admission_title_accent">2026-2027</span></h2>
+    <p class="section-sub reveal" data-key="admission_sub">Всё, что нужно знать абитуриенту - в трёх карточках</p>
+    <div class="admission-grid">
+      <div class="adm-card reveal">
+        <h3 data-key="adm1_title">// Перечень ЕГЭ</h3>
+        <div class="adm-subject"><div class="dot2"></div> <span data-key="adm1_s1">Математика</span></div>
+        <div class="adm-subject"><div class="dot2"></div> <span data-key="adm1_s2">Русский язык</span></div>
+        <div class="adm-subject"><div class="dot2"></div> <span data-key="adm1_s3">Информатика</span> <span style="color:var(--muted); font-size:0.78rem; margin-left:auto" data-key="adm1_s3_alt">или Физика</span></div>
+        <div style="margin-top:20px;">
+          <div style="font-size:0.78rem; color:var(--muted); margin-bottom:4px;" data-key="adm1_level">Уровень подготовки</div>
+          <div style="font-size:0.875rem; font-weight:600; margin-bottom:4px;" data-key="adm1_code">Бакалавриат 09.03.03</div>
+          <div style="font-size:0.78rem; color:var(--muted);" data-key="adm1_duration">Прикладная информатика · 4 года</div>
+        </div>
+      </div>
+      <div class="adm-card reveal" style="text-align:center;">
+        <h3 data-key="adm2_title">// Проходной балл 2025</h3>
+        <span class="score-big">169</span>
+        <div class="score-label" data-key="adm2_label">сумма трёх ЕГЭ</div>
+        <div style="margin-top:20px; padding:12px; background:rgba(109,40,217,0.06); border:1px solid rgba(109,40,217,0.15); border-radius:10px; font-size:0.82rem; color:var(--muted);">
+          <span data-key="adm2_fulltime">Очная форма · 4 года</span><br>
+          <span style="color:var(--purple-light); font-weight:600;" data-key="adm2_budget">Бюджетные и платные места</span>
+        </div>
+        <div style="margin-top:12px; padding:12px; background:rgba(5,150,105,0.06); border:1px solid rgba(5,150,105,0.15); border-radius:10px; font-size:0.82rem; color:var(--muted);">
+          <span data-key="adm2_parttime">Заочная форма · 3.5–5 лет</span><br>
+          <span style="color:var(--green); font-weight:600;" data-key="adm2_dist">+ дистанционные технологии</span>
+        </div>
+      </div>
+      <div class="adm-card reveal">
+        <h3 data-key="adm3_title">// Что даём дополнительно</h3>
+        <div class="form-row">
+          <div class="form-item">
+            <span class="fi-icon"></span>
+            <div class="fi-text">
+              <div class="fi-title" data-key="adm3_dorm_title">Общежитие</div>
+              <div class="fi-sub" data-key="adm3_dorm_sub">Для всех иногородних студентов</div>
+            </div>
+          </div>
+          <div class="form-item">
+            <span class="fi-icon"></span>
+            <div class="fi-text">
+              <div class="fi-title" data-key="adm3_ms_title">Магистратура</div>
+              <div class="fi-sub" data-key="adm3_ms_sub">09.04.03 · 2 года после бакалавриата</div>
+            </div>
+          </div>
+          <div class="form-item">
+            <span class="fi-icon"></span>
+            <div class="fi-text">
+              <div class="fi-title" data-key="adm3_int_title">Современные лаборатории</div>
+              <div class="fi-sub" data-key="adm3_int_sub">Оборудованные аудитории, актуальные инструменты и лицензионный софт</div>
+            </div>
+          </div>
+          <div class="form-item">
+            <span class="fi-icon"></span>
+            <div class="fi-text">
+              <div class="fi-title" data-key="adm3_comp_title">Олимпиады и хакатоны</div>
+              <div class="fi-sub" data-key="adm3_comp_sub">Региональные и всероссийские</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="section-wrap" style="text-align:center;">
+    <div class="section-label reveal" data-key="partners_label">// наши партнёры</div>
+    <h2 class="section-title reveal"><span data-key="partners_title_prefix">Компании, которые</span> <span class="accent" data-key="partners_title_accent">нанимают</span> <span data-key="partners_title_suffix">наших выпускников</span></h2>
+    <p class="section-sub reveal" style="margin:0 auto 40px;" data-key="partners_sub">Мы сотрудничаем с реальным IT-бизнесом - стажировки, дипломные проекты, трудоустройство</p>
+    <div class="partners-grid reveal">
+      <div class="partner-chip"><img src="img/1С.png" alt="1C" class="partner-logo"></div>
+      <div class="partner-chip"><img src="img/Locman.png" alt="Лоцман" class="partner-logo"></div>
+      <div class="partner-chip"><img src="img/BSC.png" alt="BSC" class="partner-logo"></div>
+      <div class="partner-chip"><img src="img/FOCUS.png" alt="FOCUS egar technology" class="partner-logo"></div>
+      <div class="partner-chip"><img src="img/sist.png" alt="Системный подход" class="partner-logo"></div>
+      <div class="partner-chip"><img src="img/altenar.png" alt="ALTENAR" class="partner-logo"></div>
+      <div class="partner-chip"><img src="img/aml.png" alt="AML Technology" class="partner-logo"></div>
+      <div class="partner-chip"><img src="img/INRECO.png" alt="INRECO LAN" class="partner-logo"></div>
+      <div class="partner-chip"><img src="img/dominos.png" alt="IT-отдел Domino's pizza" class="partner-logo"></div>
+      <div class="partner-chip"><img src="img/abi.png" alt="ABI MALL" class="partner-logo"></div>
+      <div class="partner-chip" data-key="partners_other">и другие...</div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="cta-inner">
+    <div class="section-label reveal" style="display:inline-block;" data-key="cta_label">// твоя карьера начинается сейчас</div>
+    <h2 class="section-title reveal"><span data-key="cta_title_prefix">Готов стать</span><br><span class="accent" data-key="cta_title_accent">IT-специалистом?</span></h2>
+    <p class="section-sub reveal" data-key="cta_sub">Подай документы в Институт информационных технологий и электроники ВлГУ - и через 4 года выйди на рынок с реальным опытом и востребованными навыками.</p>
+    <a href="https://prkom.vlsu.ru/" target="_blank" class="btn-primary reveal" data-key="cta_btn"> Подать заявление</a>
+    <div style="margin-top:24px; font-size:0.82rem; color:var(--muted);" class="reveal">
+      +7 (4922) 67-99-00 &nbsp;·&nbsp; iite@vlsu.ru &nbsp;·&nbsp; <span data-key="cta_address">г. Владимир, ул. Горького, 87, аудитория 105</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo" style="font-size:1rem;">
+        <div class="cube">  <img src="img/vlsu.png" alt="VLogo"></div>
+        <span data-key="footer_logo_vlsu">ВлГУ</span> <span style="color:var(--purple-light)" data-key="footer_logo_ite">ИИТЭ</span>
+      </div>
+      <p data-key="footer_desc">Институт информационных технологий и электроники Владимирского государственного университета - твой старт в IT-профессию.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer_sections">Разделы</h4>
+      <ul>
+        <li><a href="#why" data-key="footer_about">О направлении</a></li>
+        <li><a href="#stack" data-key="footer_tech">Технологии</a></li>
+        <li><a href="#curriculum" data-key="footer_curriculum">Программа</a></li>
+        <li><a href="#professions" data-key="footer_careers">Профессии</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer_admission">Поступление</h4>
+      <ul>
+        <li><a href="#admission" data-key="footer_how">Как поступить</a></li>
+        <li><a href="#partners" data-key="footer_partners">Партнёры</a></li>
+        <li><a href="https://www.vlsu.ru" target="_blank" data-key="footer_vlsu">Сайт ВлГУ</a></li>
+        <li><a href="https://ite.vlsu.ru" target="_blank" data-key="footer_ite">Сайт ИИТЭ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <h4 data-key="footer_contacts">Контакты</h4>
+      <div class="fc-line"> prkom@vlsu.ru</div>
+      <div class="fc-line"> iite@vlsu.ru</div>
+      <div class="fc-line" data-key="footer_address"> г. Владимир, ул. Горького, 87, аудитория 105</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-key="footer_copyright">© 2025 ВлГУ ИИТЭ · Прикладная информатика</span>
+    <span data-key="footer_tagline">Будущее строят те, кто учится сейчас </span>
+  </div>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+
+<script>
+
+(function(){
+  const c = document.getElementById('stars-canvas');
+  const ctx = c.getContext('2d');
+  let W, H, stars = [];
+  function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
+  function makeStars(){
+    stars = [];
+    for(let i=0;i<200;i++){
+      stars.push({x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.5+0.2, s:Math.random()*0.3+0.05});
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    stars.forEach(s=>{
+      s.y -= s.s;
+      if(s.y < 0){ s.y = H; s.x = Math.random()*W; }
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(109,40,217,${Math.random()*0.2+0.1})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  resize(); makeStars(); draw();
+  window.addEventListener('resize',()=>{ resize(); makeStars(); });
+})();
+
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        setTimeout(()=>{ e.target.classList.add('visible'); }, 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => obs.observe(el));
+})();
+
+function animateCount(el, target, suffix){
+  let start = 0;
+  const duration = 1800;
+  const step = timestamp => {
+    if(!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target) + (suffix||'');
+    if(progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+(function(){
+  const counters = document.querySelectorAll('[data-count]');
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        animateCount(e.target, +e.target.dataset.count, e.target.dataset.suffix||'');
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.5});
+  counters.forEach(el=>obs.observe(el));
+})();
+
+(function(){
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', ()=>{
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+})();
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id = a.getAttribute('href');
+    const el = document.querySelector(id);
+    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
+
+(function(){
+  const sections = ['hero','why','stack','curriculum','professions','advantages','admission','partners','cta'];
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll',()=>{
+    let cur = 'hero';
+    sections.forEach(id=>{
+      const s = document.getElementById(id);
+      if(s && window.scrollY >= s.offsetTop - 100) cur = id;
+    });
+    navLinks.forEach(a=>{
+      a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--text)' : '';
+    });
+  });
+})();
+
+const translations = {
+  en: {
+    nav_logo_vlsu: "VlSU",
+    nav_logo_ite: "ITE",
+    nav_why: "About",
+    nav_stack: "Technologies",
+    nav_curriculum: "Curriculum",
+    nav_professions: "Careers",
+    nav_admission: "Admission",
+    nav_partners: "Partners",
+    nav_cta: "Apply →",
+    hero_badge: "Applied Informatics in Economics",
+    hero_title1: "Become an IT specialist",
+    hero_title2: "everyone is waiting for",
+    hero_sub: "Programming, <strong>Artificial Intelligence</strong>, mobile development, data analytics - all this you'll master in 4 years in Vladimir. And start working as a student.",
+    hero_btn1: "I want to study here",
+    hero_btn2: "Program",
+    stat1: "% employment rate",
+    stat2: "k ₽ junior salary",
+    stat3: "+ technologies",
+    why_label: "// why applied informatics",
+    why_title_prefix: "Why choose",
+    why_title_accent: "us",
+    why_sub: "6 reasons that will convince you - this is the right choice",
+    why1_title: "Artificial Intelligence",
+    why1_desc: "Machine learning, neural networks and data analytics - from the second year. You'll work with real tasks, not theoretical examples.",
+    why2_title: "Partners - leading companies",
+    why2_desc: "Close cooperation with IT companies in Vladimir and the region: internships, hackathons, graduation projects on real business tasks.",
+    why3_title: "Work as a student",
+    why3_desc: "Practice from the 1st year, internships in the 3rd–4th year. Most students find a job before graduation.",
+    why4_title: "Competitions and Olympiads",
+    why4_desc: "Participation in Olympiads, developer contests, hackathons - this is a portfolio, experience and contacts with employers.",
+    why5_title: "Experienced team",
+    why5_desc: "Teachers are practicing specialists with real experience in development, analytics and IT project management.",
+    why6_title: "Path to Master's",
+    why6_desc: "After bachelor's you can continue your studies in Master's program in Applied Informatics and deepen your specialization.",
+    numbers_label: "// numbers speak for themselves",
+    numbers_title_prefix: "Facts about",
+    numbers_title_accent: "the profession",
+    numbers_sub: "The IT market is growing faster than any other industry - and we prepare for this market",
+    num1_desc: "graduates are employed within the first year",
+    num2_desc: "average junior developer salary in Vladimir",
+    num3_desc: "and you are a sought-after specialist on the market",
+    num4_desc: "modern technologies and tools in the program",
+    stack_label: "// technologies you will master",
+    stack_title_prefix: "Full",
+    stack_title_accent: "technology stack",
+    stack_sub: "From classical programming to IoT and data engineering",
+    curriculum_label: "// curriculum",
+    curriculum_title_prefix: "What you will",
+    curriculum_title_accent: "study",
+    curriculum_sub: "4 years of intensive immersion - from the basics of algorithmics to industrial development and AI",
+    year1_pill: "Foundation",
+    y1s1: "Algorithmics and programming (C#, Python)",
+    y1s2: "Databases - design and SQL",
+    y1s3: "Operating systems and networks",
+    y1s4: "Web development: HTML, CSS, JS",
+    year2_pill: "Practice",
+    y2s1: "Frontend: React, UI development",
+    y2s2: "Backend: PHP/Laravel, Node.js, REST API",
+    y2s3: "Software engineering and architecture",
+    y2s4: "Client-server application development",
+    year3_pill: "Deepening",
+    y3s1: "Mobile development: Android & iOS",
+    y3s2: "Fundamentals and application of AI",
+    y3s3: "Data analysis software tools",
+    y3s4: "Data warehouse architecture and design",
+    y3s5: "Data engineering and ETL processes",
+    y3s6: "Internet of Things (IoT)",
+    year4_pill: "Specialization",
+    y4s1: "Team design and development",
+    y4s2: "Information systems testing",
+    y4s3: "IS architecture and integration basics",
+    y4s4: "Graduate project and industrial practice",
+    prof_label: "// what you'll become",
+    prof_title_prefix: "Future",
+    prof_title_accent: "careers",
+    prof_sub: "8 in-demand directions where our graduates are awaited",
+    p1_title: "Web Developer",
+    p1_desc: "Frontend / Backend / Fullstack",
+    p2_title: "Mobile Developer",
+    p2_desc: "Android & iOS apps",
+    p3_title: "1C Developer",
+    p3_desc: "Corporate accounting systems",
+    p4_title: "Database Administrator",
+    p4_desc: "SQL, NoSQL, data warehouse design",
+    p5_title: "Software Tester",
+    p5_desc: "QA, automation, Postman, Test IT",
+    p6_title: "Data Science Specialist",
+    p6_desc: "Data analysis and visualization",
+    p7_title: "ML Specialist",
+    p7_desc: "Machine learning, neural networks",
+    p8_title: "Systems Analyst",
+    p8_desc: "IS architecture, integrations, business analysis",
+    adv_label: "// advantages of studying",
+    adv_title_prefix: "Everything you need for",
+    adv_title_accent: "a start",
+    adv1_title: "Fundamental training",
+    adv1_desc: "C#, Java, Python, 1C, Web development, mobile development, databases, testing - a full stack in 4 years.",
+    adv2_title: "Work while studying",
+    adv2_desc: "Practice from the 1st year, partner internships - students start working before graduation.",
+    adv3_title: "Modern laboratories",
+    adv3_desc: "Equipped classrooms, up-to-date tools and licensed software - everything for real development.",
+    adv4_title: "Dormitory for non-residents",
+    adv4_desc: "All non-resident students who need accommodation are provided with a place in the dormitory.",
+    adv5_title: "Olympiads and competitions",
+    adv5_desc: "Participation in programming contests, hackathons - build your reputation as a student.",
+    adv_vis_title: "// graduate demand",
+    s1: "Web development",
+    s2: "Data Science / ML",
+    s3: "Mobile development",
+    s4: "Systems analysis",
+    s5: "QA / Testing",
+    adv_vis_footer: "→ Demand for IT specialists grows by 22% annually",
+    admission_label: "// how to apply",
+    admission_title_prefix: "Admission",
+    admission_title_accent: "2026–2027",
+    admission_sub: "Everything an applicant needs to know - in three cards",
+    adm1_title: "// Unified Exam list",
+    adm1_s1: "Mathematics",
+    adm1_s2: "Russian Language",
+    adm1_s3: "Computer Science",
+    adm1_s3_alt: "or Physics",
+    adm1_level: "Level of training",
+    adm1_code: "Bachelor 09.03.03",
+    adm1_duration: "Applied Informatics · 4 years",
+    adm2_title: "// 2025 Passing score",
+    adm2_label: "sum of three Unified Exams",
+    adm2_fulltime: "Full-time · 4 years",
+    adm2_budget: "Budget and fee-based places",
+    adm2_parttime: "Part-time · 3.5–5 years",
+    adm2_dist: "+ distance learning technologies",
+    adm3_title: "// What we offer additionally",
+    adm3_dorm_title: "Dormitory",
+    adm3_dorm_sub: "For all non-resident students",
+    adm3_ms_title: "Master's program",
+    adm3_ms_sub: "09.04.03 · 2 years after bachelor's",
+    adm3_int_title: "Modern laboratories",
+    adm3_int_sub: "Equipped classrooms, up-to-date tools, and licensed software.",
+    adm3_comp_title: "Olympiads and hackathons",
+    adm3_comp_sub: "Regional and national",
+    partners_label: "// our partners",
+    partners_title_prefix: "Companies that",
+    partners_title_accent: "hire",
+    partners_title_suffix: "our graduates",
+    partners_sub: "We cooperate with real IT business - internships, graduation projects, employment",
+    partners_other: "and others...",
+    cta_label: "// your career starts now",
+    cta_title_prefix: "Ready to become",
+    cta_title_accent: "an IT specialist?",
+    cta_sub: "Apply to the Institute of Information Technology and Electronics of VlSU - and in 4 years enter the market with real experience and in-demand skills.",
+    cta_btn: "Apply now →",
+    cta_address: "Vladimir, Gorkogo str., 87, room 105",
+    footer_logo_vlsu: "VlSU",
+    footer_logo_ite: "ITE",
+    footer_desc: "Institute of Information Technology and Electronics of Vladimir State University - your start in the IT profession.",
+    footer_sections: "Sections",
+    footer_about: "About",
+    footer_tech: "Technologies",
+    footer_curriculum: "Program",
+    footer_careers: "Careers",
+    footer_admission: "Admission",
+    footer_how: "How to apply",
+    footer_partners: "Partners",
+    footer_vlsu: "VlSU website",
+    footer_ite: "ITE website",
+    footer_contacts: "Contacts",
+    footer_address: "Vladimir, Gorkogo str., 87",
+    footer_copyright: "© 2026 VlSU ITE · Applied Informatics",
+    footer_tagline: "The future is built by those who study now"
+  },
+  ru: {
+    nav_logo_vlsu: "ВлГУ",
+    nav_logo_ite: "ИИТЭ",
+    nav_why: "О направлении",
+    nav_stack: "Технологии",
+    nav_curriculum: "Обучение",
+    nav_professions: "Профессии",
+    nav_admission: "Поступление",
+    nav_partners: "Партнёры",
+    nav_cta: "Поступить →",
+    hero_badge: "Прикладная информатика в экономике",
+    hero_title1: "Стань IT-специалистом",
+    hero_title2: "которого ждут",
+    hero_sub: "Программирование, <strong>искусственный интеллект</strong>, мобильная разработка, аналитика данных - всё это ты освоишь за 4 года в Владимире. И начнёшь работать ещё студентом.",
+    hero_btn1: "Хочу учиться здесь",
+    hero_btn2: "Программа",
+    stat1: "% трудоустройства",
+    stat2: "тыс. ₽ зарплата junior",
+    stat3: "+ технологий",
+    why_label: "// почему прикладная информатика",
+    why_title_prefix: "Почему выбирают",
+    why_title_accent: "нас",
+    why_sub: "6 причин, которые убедят тебя - это правильный выбор",
+    why1_title: "Искусственный интеллект",
+    why1_desc: "Машинное обучение, нейронные сети и анализ данных - уже со второго курса. Ты будешь работать с реальными задачами, а не теоретическими примерами.",
+    why2_title: "Партнёры - ведущие компании",
+    why2_desc: "Тесное сотрудничество с IT-компаниями Владимира и области: стажировки, хакатоны, дипломные проекты на реальных задачах бизнеса.",
+    why3_title: "Работаешь уже студентом",
+    why3_desc: "Практика с 1 курса, стажировки на 3–4 курсе. Большинство наших студентов находят работу ещё до окончания обучения.",
+    why4_title: "Конкурсы и олимпиады",
+    why4_desc: "Участие в олимпиадах, конкурсах разработчиков, хакатонах - это портфолио, опыт и знакомства с работодателями.",
+    why5_title: "Опытная команда",
+    why5_desc: "Преподаватели - практикующие специалисты с реальным опытом разработки, аналитики и управления IT-проектами.",
+    why6_title: "Путь в магистратуру",
+    why6_desc: "После бакалавриата можно продолжить обучение на магистратуре по прикладной информатике и углубиться в специализацию.",
+    numbers_label: "// цифры, которые говорят сами за себя",
+    numbers_title_prefix: "Факты о",
+    numbers_title_accent: "профессии",
+    numbers_sub: "Рынок IT растёт быстрее любой другой отрасли - и мы готовим к этому рынку",
+    num1_desc: "выпускников трудоустраиваются в первый год",
+    num2_desc: "средняя зарплата junior-разработчика в Владимире",
+    num3_desc: "и ты востребованный специалист на рынке",
+    num4_desc: "современных технологий и инструментов в программе",
+    stack_label: "// технологии, которые ты освоишь",
+    stack_title_prefix: "Полный",
+    stack_title_accent: "технологический стек",
+    stack_sub: "От классического программирования до IoT и инженерии данных",
+    curriculum_label: "// программа обучения",
+    curriculum_title_prefix: "Что ты будешь",
+    curriculum_title_accent: "изучать",
+    curriculum_sub: "4 года интенсивного погружения - от основ алгоритмики до промышленной разработки и AI",
+    year1_pill: "Фундамент",
+    y1s1: "Алгоритмизация и программирование (C#, Python)",
+    y1s2: "Базы данных - проектирование и SQL",
+    y1s3: "Операционные системы и сети",
+    y1s4: "Web-разработка: HTML, CSS, JS",
+    year2_pill: "Практика",
+    y2s1: "Frontend: React, разработка интерфейсов",
+    y2s2: "Backend: PHP/Laravel, Node.js, REST API",
+    y2s3: "Программная инженерия и архитектура",
+    y2s4: "Разработка клиент-серверных приложений",
+    year3_pill: "Углубление",
+    y3s1: "Мобильная разработка: Android & iOS",
+    y3s2: "Основы и применение искусственного интеллекта",
+    y3s3: "Программные средства анализа данных",
+    y3s4: "Архитектура и дизайн хранилищ данных",
+    y3s5: "Инженерия данных и ETL-процессы",
+    y3s6: "Интернет вещей (IoT)",
+    year4_pill: "Специализация",
+    y4s1: "Командное проектирование и разработка",
+    y4s2: "Тестирование информационных систем",
+    y4s3: "Основы архитектуры и интеграции ИС",
+    y4s4: "Дипломный проект и производственная практика",
+    bonus_label: "// дополнительные баллы",
+    bonus_title: "Как получить <span class=\"accent\">+10 баллов</span> к ЕГЭ",
+    bonus_sub: "Повысь свои шансы на поступление с индивидуальными достижениями",
+    bonus_medal: "Золотая медаль",
+    bonus_medal_desc: "Аттестат с отличием",
+    bonus_volunteer: "Волонтёрство",
+    bonus_volunteer_desc: "Добровольческая деятельность",
+    bonus_gto: "Знак ГТО",
+    bonus_gto_desc: "Золотой знак отличия",
+    bonus_max: "Максимальный бонус",
+    bonus_points: "10 баллов",
+    bonus_max_desc: "из 10 возможных",
+    prof_label: "// кем ты станешь",
+    prof_title_prefix: "Будущая",
+    prof_title_accent: "профессия",
+    prof_sub: "8 востребованных направлений, где ждут наших выпускников",
+    p1_title: "Web-разработчик",
+    p1_desc: "Frontend / Backend / Fullstack",
+    p2_title: "Мобильный разработчик",
+    p2_desc: "Android & iOS приложения",
+    p3_title: "1С-разработчик",
+    p3_desc: "Корпоративные системы учёта",
+    p4_title: "Администратор БД",
+    p4_desc: "SQL, NoSQL, проектирование хранилищ",
+    p5_title: "Тестировщик ПО",
+    p5_desc: "QA, автоматизация, Postman, Test IT",
+    p6_title: "Специалист Data Science",
+    p6_desc: "Анализ и визуализация данных",
+    p7_title: "Специалист по ML",
+    p7_desc: "Машинное обучение, нейронные сети",
+    p8_title: "Системный аналитик",
+    p8_desc: "Архитектура ИС, интеграции, бизнес-анализ",
+    adv_label: "// преимущества обучения",
+    adv_title_prefix: "Всё, что нужно для",
+    adv_title_accent: "старта",
+    adv1_title: "Фундаментальная подготовка",
+    adv1_desc: "C#, Java, Python, 1C, Web-разработка, мобильная разработка, базы данных, тестирование - полный стек за 4 года.",
+    adv2_title: "Работа уже в студенчестве",
+    adv2_desc: "Практика с 1 курса, партнёрские стажировки - студенты уходят на работу ещё до диплома.",
+    adv3_title: "Современные лаборатории",
+    adv3_desc: "Оборудованные аудитории, актуальные инструменты и лицензионный софт - всё для реальной разработки",
+    adv4_title: "Общежитие для иногородних",
+    adv4_desc: "Всем желающим иногородним студентам предоставляется место в общежитии.",
+    adv5_title: "Олимпиады и конкурсы",
+    adv5_desc: "Участие в соревнованиях по программированию, хакатонах и конкурсах - строишь репутацию ещё студентом.",
+    adv_vis_title: "// востребованность выпускников",
+    s1: "Web-разработка",
+    s2: "Data Science / ML",
+    s3: "Мобильная разработка",
+    s4: "Системный анализ",
+    s5: "QA / Тестирование",
+    adv_vis_footer: "→ Спрос на IT-специалистов растёт ежегодно на 22%",
+    admission_label: "// как поступить",
+    admission_title_prefix: "Поступление",
+    admission_title_accent: "2026–2027",
+    admission_sub: "Всё, что нужно знать абитуриенту - в трёх карточках",
+    adm1_title: "// Перечень ЕГЭ",
+    adm1_s1: "Математика",
+    adm1_s2: "Русский язык",
+    adm1_s3: "Информатика",
+    adm1_s3_alt: "или Физика",
+    adm1_level: "Уровень подготовки",
+    adm1_code: "Бакалавриат 09.03.03",
+    adm1_duration: "Прикладная информатика · 4 года",
+    adm2_title: "// Проходной балл 2025",
+    adm2_label: "сумма трёх ЕГЭ",
+    adm2_fulltime: "Очная форма · 4 года",
+    adm2_budget: "Бюджетные и платные места",
+    adm2_parttime: "Заочная форма · 3.5–5 лет",
+    adm2_dist: "+ дистанционные технологии",
+    adm3_title: "// Что даём дополнительно",
+    adm3_dorm_title: "Общежитие",
+    adm3_dorm_sub: "Для всех иногородних студентов",
+    adm3_ms_title: "Магистратура",
+    adm3_ms_sub: "09.04.03 · 2 года после бакалавриата",
+    adm3_int_title: "Современные лаборатории",
+    adm3_int_sub: "Оборудованные аудитории, актуальные инструменты и лицензионный софт",
+    adm3_comp_title: "Олимпиады и хакатоны",
+    adm3_comp_sub: "Региональные и всероссийские",
+    partners_label: "// наши партнёры",
+    partners_title_prefix: "Компании, которые",
+    partners_title_accent: "нанимают",
+    partners_title_suffix: "наших выпускников",
+    partners_sub: "Мы сотрудничаем с реальным IT-бизнесом - стажировки, дипломные проекты, трудоустройство",
+    partners_other: "и другие...",
+    cta_label: "// твоя карьера начинается сейчас",
+    cta_title_prefix: "Готов стать",
+    cta_title_accent: "IT-специалистом?",
+    cta_sub: "Подай документы в Институт информационных технологий и электроники ВлГУ - и через 4 года выйди на рынок с реальным опытом и востребованными навыками.",
+    cta_btn: " Подать заявление",
+    cta_address: "г. Владимир, ул. Горького, 87, аудитория 105",
+    footer_logo_vlsu: "ВлГУ",
+    footer_logo_ite: "ИИТЭ",
+    footer_desc: "Институт информационных технологий и электроники Владимирского государственного университета - твой старт в IT-профессию.",
+    footer_sections: "Разделы",
+    footer_about: "О направлении",
+    footer_tech: "Технологии",
+    footer_curriculum: "Программа",
+    footer_careers: "Профессии",
+    footer_admission: "Поступление",
+    footer_how: "Как поступить",
+    footer_partners: "Партнёры",
+    footer_vlsu: "Сайт ВлГУ",
+    footer_ite: "Сайт ИТЭ",
+    footer_contacts: "Контакты",
+    footer_address: "г. Владимир, ул. Горького, 87, аудитория 105",
+    footer_copyright: "© 2026 ВлГУ ИИТЭ · Прикладная информатика",
+    footer_tagline: "Будущее строят те, кто учится сейчас"
+  }
+};
+
+let currentLang = 'ru';
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.dataset.key;
+    if (t[key] !== undefined) {
+      if (key === 'hero_sub' || key === 'cta_sub' || key === 'footer_desc') {
+        el.innerHTML = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  
+  document.documentElement.lang = lang;
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const lang = this.dataset.lang;
+    applyLanguage(lang);
+  });
+});
+
+applyLanguage('ru');
+</script>
+</body>
+</html>
